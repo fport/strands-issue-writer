@@ -10,24 +10,24 @@ Nothing leaves your machine. The model is the one trained in
 served through Ollama or vLLM.
 
 ```
-$ strands-issue-writer draft "selam, canlı bahis tarafında oran değişince kupon
-reddediliyor, kullanıcı ne olduğunu anlamıyor. oran yükseldiyse otomatik kabul
-edilsin isteyenler var"
+$ strands-issue-writer draft "selam, müşteriler fatura geçmişini tek tek açmak
+yerine toplu PDF olarak indirmek istiyor. muhasebeciler ayda 30-40 fatura
+indiriyor, çok vakit alıyor. bu sprint yetişir mi?"
 
-[Story] Kupon ayarlarına oran değişimi tercihi ekle
+[Story] Fatura geçmişini tek PDF olarak dışa aktarma ekle
 priority Medium · 5 points
-components: Bet Slip  labels: betslip, ux
+components: Billing  labels: export, self-service
 
 h2. Kullanıcı Hikâyesi
-Bir kupon oynayan bahisçi olarak oranlar yükseldiğinde kuponumun otomatik kabul
-edilip edilmeyeceğini seçmek istiyorum; böylece kabul edeceğim küçük bir oran
-değişimi yüzünden kuponum reddedilmesin.
+Bir muhasebe işlerini yürüten müşteri olarak fatura geçmişimi tek bir PDF olarak
+indirmek istiyorum; böylece her faturayı tek tek açmak zorunda kalmayayım.
 ...
 
 Assumptions:
-  - Kapsamın yalnızca oran yükselmesi olduğu varsayıldı; düşüş davranışı belirtilmedi.
+  - Dışa aktarma kapsamının seçilen tarih aralığı olduğu varsayıldı; girdide sınır
+    belirtilmedi.
 Open questions:
-  - Oran düştüğünde ne olmalı, kupon yine reddedilecek mi?
+  - İndirilebilecek en geniş tarih aralığı ne olmalı?
 ```
 
 ## Two models, two jobs
