@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: uv python install 3.12
+      - run: uv sync --group dev --extra ollama --extra vllm --extra dashboard
+      - run: uv run ruff check .
+      # No model is served in CI; these tests cover the contract, the rule
+      # review and the tracker payloads, all of which are deterministic.
+      - run: uv run pytest

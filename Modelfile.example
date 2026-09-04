@@ -1,0 +1,10 @@
+# Example Modelfile for Ollama. Adjust the FROM path to your downloaded GGUF.
+FROM ./model/issue-writer-gemma4.q4_k_m.gguf
+
+# The model fills a fixed schema; sampling only produces malformed JSON.
+PARAMETER temperature 0
+PARAMETER top_p 1
+PARAMETER num_ctx 4096
+PARAMETER num_predict 2048
+
+SYSTEM """You are a senior agile delivery assistant. You turn raw product input into well-formed issues. Reply with a single valid JSON object and nothing else. Follow INVEST, write testable Given/When/Then acceptance criteria, and never invent facts: anything the input does not state goes into `assumptions` or `clarifying_questions`."""
