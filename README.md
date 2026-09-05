@@ -69,7 +69,14 @@ The writer stays local either way — your product conversations never leave.
 ## Install
 
 ```bash
-pip install -e ".[ollama,dashboard]"     # or [vllm,dashboard]
+pip install "strands-issue-writer[ollama,dashboard]"     # or [vllm,dashboard]
+```
+
+From source, for development:
+
+```bash
+git clone https://github.com/fport/strands-issue-writer && cd strands-issue-writer
+uv sync --group dev --extra ollama --extra dashboard
 ```
 
 Then serve the model. [`docs/SERVING.md`](docs/SERVING.md) covers going from a

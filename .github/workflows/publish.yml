@@ -39,7 +39,7 @@ jobs:
   publish:
     needs: build
     runs-on: ubuntu-latest
-    environment: pypi
+    environment: ${{ github.event.inputs.target || 'pypi' }}
     # Trusted publishing: no API token to store or rotate. Configure the
     # publisher once at pypi.org/manage/account/publishing/
     permissions:
