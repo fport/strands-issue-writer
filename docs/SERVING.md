@@ -32,6 +32,19 @@ drops noticeably after quantisation, try `q5_k_m` or `q8_0` before blaming train
 
 Best when you want it running on a laptop in a few minutes.
 
+> **The mmproj warning you will see, and why it does not apply.** Exporting a
+> Gemma 4 GGUF prints a note that Ollama does not support separate `mmproj` files.
+> `mmproj` is the multimodal projector — the vision and audio towers — written as
+> its own GGUF. Ollama genuinely cannot attach one (there is no Modelfile directive
+> for it; see ollama/ollama#16192, #9967, #15346). But this is a **text-only**
+> fine-tune: delete that file and point Ollama at the text GGUF. The warning is a
+> static string Unsloth appends for every vision-capable base, not a diagnosis of
+> your export.
+>
+> ```bash
+> rm *mmproj*.gguf        # the projector; nothing references it
+> ```
+
 ```bash
 # pull the GGUF you pushed
 huggingface-cli download fport/issue-writer-gemma4-gguf \
@@ -56,6 +69,22 @@ SYSTEM """You are a senior agile delivery assistant. You turn raw product input 
 ```bash
 ollama create issue-writer -f Modelfile
 ollama run issue-writer "Turn this into an issue: cart empties when a guest logs in"
+```
+
+Ollama has supported the `gemma4` architecture since v0.20.0, with an early bug
+where imported GGUFs failed with `unknown model architecture: 'gemma4'` while
+library pulls worked (#15508). Fixed in 0.20.6. Check `ollama --version` if you see
+that error.
+
+For strict JSON, prefer the API's format parameter over prompting alone:
+
+```bash
+curl http://localhost:11434/api/generate -d '{
+  "model": "issue-writer",
+  "prompt": "...",
+  "format": "json",
+  "stream": false
+}'
 ```
 
 Point the agent at it:
@@ -145,6 +174,16 @@ that is the tooling working, not failing — read them.
 ---
 
 ## 5. When output looks wrong
+
+**Double BOS after conversion.** Gemma's chat template writes a literal `<bos>`
+while the tokenizer prepends another, and two of them measurably degrade output.
+Unsloth strips it during export and notes it in the model card — look for *"The
+model's BOS token behavior was adjusted for GGUF compatibility."* This cannot be
+fixed at runtime: `--override-kv tokenizer.ggml.add_bos_token=bool:false` is ignored
+for Gemma 4 (llama.cpp#21786), so the template has to be right at conversion time.
+
+**Context window too small.** Ollama's default is far below Gemma 4's 128K. Set
+`num_ctx` explicitly in the Modelfile.
 
 **Plain prose instead of JSON.** The system prompt is missing or different from the
 one used in training. Ollama takes it from the `SYSTEM` block in the Modelfile;
