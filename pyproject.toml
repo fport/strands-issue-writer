@@ -1,6 +1,6 @@
 [project]
 name = "strands-issue-writer"
-version = "0.1.1"
+version = "0.1.2"
 description = "A Strands agent that turns raw product chatter into well-formed issue tracker entries, powered by a locally served fine-tuned model"
 readme = "README.md"
 requires-python = ">=3.10"

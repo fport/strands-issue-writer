@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/fport/strands-issue-writer/main/strands-issue-writer-logo.png" alt="strands-issue-writer" width="180">
+  <img src="https://raw.githubusercontent.com/fport/strands-issue-writer/main/assets/logo.png" alt="strands-issue-writer" width="180">
   <h1>strands-issue-writer</h1>
   <p><strong>Turn product chatter into well-formed issues.</strong> Locally served, rule-checked, never invented.</p>
   <p>
