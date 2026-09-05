@@ -1,13 +1,13 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/fport/strands-issue-writer/main/assets/logo.png" alt="strands-issue-writer" width="180">
+  <img src="https://raw.githubusercontent.com/fport/strands-issue-writer/main/assets/logo.png?v=1" alt="strands-issue-writer" width="180">
   <h1>strands-issue-writer</h1>
   <p><strong>Turn product chatter into well-formed issues.</strong> Locally served, rule-checked, never invented.</p>
   <p>
-    <a href="https://pypi.org/project/strands-issue-writer/"><img alt="PyPI" src="https://img.shields.io/pypi/v/strands-issue-writer?style=flat-square&color=F97316"></a>
-    <a href="https://pypi.org/project/strands-issue-writer/"><img alt="Python" src="https://img.shields.io/pypi/pyversions/strands-issue-writer?style=flat-square"></a>
-    <a href="https://github.com/fport/strands-issue-writer/actions"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/fport/strands-issue-writer/ci.yml?style=flat-square&label=CI"></a>
-    <a href="https://huggingface.co/datasets/fport/issue-writer-tr-en"><img alt="Dataset" src="https://img.shields.io/badge/%F0%9F%A4%97%20dataset-issue--writer--tr--en-yellow?style=flat-square"></a>
-    <a href="https://github.com/fport/strands-issue-writer/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/license-MIT-green?style=flat-square"></a>
+    <a href="https://pypi.org/project/strands-issue-writer/"><img alt="PyPI" src="https://img.shields.io/pypi/v/strands-issue-writer?style=flat-square&cacheSeconds=300&color=F97316"></a>
+    <a href="https://pypi.org/project/strands-issue-writer/"><img alt="Python" src="https://img.shields.io/pypi/pyversions/strands-issue-writer?style=flat-square&cacheSeconds=300"></a>
+    <a href="https://github.com/fport/strands-issue-writer/actions"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/fport/strands-issue-writer/ci.yml?style=flat-square&cacheSeconds=300&label=CI"></a>
+    <a href="https://huggingface.co/datasets/fport/issue-writer-tr-en"><img alt="Dataset" src="https://img.shields.io/badge/%F0%9F%A4%97%20dataset-issue--writer--tr--en-yellow?style=flat-square&cacheSeconds=300"></a>
+    <a href="https://github.com/fport/strands-issue-writer/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/license-MIT-green?style=flat-square&cacheSeconds=300"></a>
   </p>
 </div>
 
